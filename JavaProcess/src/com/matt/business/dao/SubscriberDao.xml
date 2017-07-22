@@ -3,9 +3,15 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 <mapper namespace="com.matt.business.dao.SubscriberDao">  
     
-    <parameterMap type="com.matt.business.model.Subscriber" id="subsMap">
-        <parameter property="subsid" />
-    </parameterMap>
+    <resultMap type="com.matt.business.model.Subscriber" id="subsMap">
+        <result column="subsid" property="subsid" ></result>
+        <result column="custid" property="custid"></result>
+        <result column="accountid" property="accountid"></result>
+        <result column="substype" property="subsType"></result>
+        <result column="active" property="active"></result>
+        <result column="status" property="status"></result>
+        <result column="servnumber" property="servNumber"></result>
+    </resultMap>
     
 
     <select id="getUser" parameterType="com.matt.business.model.User" resultType="com.matt.business.model.User">  
