@@ -37,6 +37,11 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  
     </bean>  
     
+    <bean id="subsDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.matt.business.dao.SubscriberDao"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+    
     <bean id="transactionManager" 
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 配置DataSourceTransactionManager时需要依注入DataSource的引用 -->

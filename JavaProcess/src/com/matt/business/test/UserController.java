@@ -6,8 +6,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.matt.business.biz.HelloWorldService;
-import com.matt.business.biz.UserService;
+import com.matt.business.dao.SubscriberDao;
 import com.matt.business.dao.UserDao;
+import com.matt.business.model.Subscriber;
 import com.matt.business.model.User;
 import com.matt.common.db.MultipleDataSource;
 
@@ -64,6 +65,23 @@ public class UserController {
 		
 		MultipleDataSource.setDataSourceKey("srpDataSource");
 		userDao.addUser(user);
+		
+		
+		MultipleDataSource.setDataSourceKey("jdbcDataSource");
+		SubscriberDao subsDao = (SubscriberDao) ctx.getBean("subsDao");
+		
+		for (int i=0; i<100; i++)
+		{
+			Subscriber subs = new Subscriber();
+			long currDate = System.currentTimeMillis() - 1500000000000L + i;
+			subs.setSubsid(currDate);
+			subs.setCustid(currDate);
+			subs.setAccountid(currDate);
+			subs.setCustid(currDate);
+			subs.setSubsType("GMS");
+			
+			subsDao.insertSubscriber(subs);
+		}
 		
 	}
 }

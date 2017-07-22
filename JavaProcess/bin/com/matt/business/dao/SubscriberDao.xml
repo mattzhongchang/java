@@ -13,6 +13,12 @@
         <result column="servnumber" property="servNumber"></result>
     </resultMap>
     
+    <insert id="insertSubscriber" parameterType="com.matt.business.model.Subscriber" >
+        <![CDATA[
+        insert into subscriber(region,subsid,custid,accountid,substype,active,status,createdate,servnumber) 
+        values(270, #{subsid}, #{custid}, #{accountid}, #{subsType}, 1, 'US10', now(), '15527858863')
+        ]]>
+    </insert>
 
     <select id="getUser" parameterType="com.matt.business.model.User" resultType="com.matt.business.model.User">  
         SELECT * FROM user WHERE username=#{username} AND password=#{password}  
