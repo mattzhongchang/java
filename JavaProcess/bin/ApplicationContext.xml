@@ -75,10 +75,14 @@
         </tx:attributes>
     </tx:advice>
     
+    <bean id="dataSourceAspect" class="Open Declaration com.matt.common.db.DataSourceAspect"></bean>
+    
     <aop:config>
         <aop:pointcut id="txPointcut" expression="execution(* com.matt.business.biz.*.*(..))"></aop:pointcut>
-        <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
+        <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice" order="2"/>
+        <aop:advisor pointcut-ref="txPointcut" advice-ref="dataSourceAspect" order="1"/>
     </aop:config>
+    
     <!-- 
     <context:component-scan base-package="com.matt"/>
     <context:annotation-config/>
@@ -95,5 +99,15 @@
          </aop:aspect>
      </aop:config>
      
+     
+     <bean id="lifecycleBean" class="com.matt.spring.LifecycleBean">
+         <property name="lifecycleBeanName" value="lifecycleBeanName"></property>
+     </bean>
+     
+     <bean id="awareBean" class="com.matt.spring.AwareBean"></bean>
+     
+     <bean id="animalBean" class="com.matt.spring.factorybean.AnimalFactoryBean">
+         <property name="animal" value="Monkey"></property>
+     </bean>
     
 </beans>
