@@ -12,7 +12,8 @@ public class MultipleDataSource extends AbstractRoutingDataSource
 	}
 
 	@Override
-	protected Object determineCurrentLookupKey() {
+	protected Object determineCurrentLookupKey() 
+	{
 		return dataSourceKey.get();
 	}
 
