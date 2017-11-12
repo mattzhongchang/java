@@ -15,7 +15,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd"
     >  
-    
+   
     
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
         <property name="dataSource" ref="multipleDataSource" />  
@@ -37,6 +37,11 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  
     </bean>  
     
+    <bean id="sqlTextDao" class="org.mybatis.spring.mapper.MapperFactoryBean">  
+        <property name="mapperInterface" value="com.matt.business.dao.SqlTextDao"></property>  
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  
+    </bean> 
+    
     <bean id="subsDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.matt.business.dao.SubscriberDao"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
@@ -44,16 +49,16 @@
     
     <bean id="transactionManager" 
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <!-- 配置DataSourceTransactionManager时需要依注入DataSource的引用 -->
+        <!-- 配置DataSourceTransactionManager时需要依注入DataSource的引用  -->
         <property name="dataSource" ref="multipleDataSource"/>
     </bean>
     
+    <!-- 
     <bean id="userService" class="com.matt.business.biz.UserServiceImpl">
         <property name="dao" ref="userDao"></property>
     </bean>
     
-    <!-- 
-     -->
+   
     <bean id="userServiceImpl" class="com.matt.business.biz.UserServiceImpl">
         <property name="dao" ref="userDao"></property>
         <property name="transactionTemplate">
@@ -63,10 +68,6 @@
         </property>
     </bean>
 
-    <!-- 定义注解驱动的事务 -->
-    <!-- 
-    <tx:annotation-driven transaction-manager="transactionManager" />
-     -->
      
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
@@ -82,12 +83,6 @@
         <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice" order="2"/>
         <aop:advisor pointcut-ref="txPointcut" advice-ref="dataSourceAspect" order="1"/>
     </aop:config>
-    
-    <!-- 
-    <context:component-scan base-package="com.matt"/>
-    <context:annotation-config/>
-     -->
-    
      
      <bean id="helloWorldService" class="com.matt.business.biz.HelloWorldServiceImpl"></bean>
      <bean id="helloWorldAspect" class="com.matt.business.aop.HelloWorldAspect"></bean>
@@ -109,5 +104,7 @@
      <bean id="animalBean" class="com.matt.spring.factorybean.AnimalFactoryBean">
          <property name="animal" value="Monkey"></property>
      </bean>
+     
+      -->
     
 </beans>

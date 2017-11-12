@@ -7,6 +7,11 @@ import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+/**
+ * ApplicationContextAware类，setApplicationContext方法在spring初始化时会执行setApplicationContext方法
+ * @author Administrator
+ *
+ */
 public class AwareBean implements BeanNameAware, ApplicationContextAware, BeanFactoryAware{
 	private BeanFactory                beanFactory;
     
