@@ -5,7 +5,7 @@ import com.matt.business.model.User;
 public interface UserDao {
 	User getUser(User user);
 	
-	void addUser(User user);
+	int addUser(User user);
 	
 	void updateUser(User user);
 	

@@ -1,12 +1,13 @@
 package com.matt;
 
+import java.lang.reflect.Field;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.matt.spring.factorybean.Animal;
-import com.matt.spring.factorybean.AnimalFactoryBean;
 
 
 
@@ -31,6 +32,20 @@ public class App {
 			Animal animal = (Animal) object;
 			animal.move();
 		}
+
+		ClassLoader classLoader = ctx.getClassLoader();
+		String className = classLoader.getClass().getName();
+		System.out.println(className);
+		String simpleName = classLoader.getClass().getSimpleName();
+		System.out.println(simpleName);
+		Field[] fields = classLoader.getClass().getDeclaredFields();
+		for (Field field : fields)
+		{
+			System.out.println(field);
+		}
+		
+		
+		
 //		Animal animal = null;
 //		try {
 //			animal = (Animal) animalFactoryBean.getObject();

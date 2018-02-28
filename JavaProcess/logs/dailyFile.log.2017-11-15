@@ -1,0 +1,20 @@
+[INFO ] 2017-11-15 23:11:43,562(0) --> [main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:518): Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7129a843: startup date [Wed Nov 15 23:11:43 GMT+08:00 2017]; root of context hierarchy  
+[DEBUG] 2017-11-15 23:11:43,989(427) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.  
+[DEBUG] 2017-11-15 23:11:44,223(661) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Parsed configuration file: 'class path resource [mybatis-config.xml]'  
+[DEBUG] 2017-11-15 23:11:44,435(873) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Property 'mapperLocations' was not specified or no matching resources found  
+[DEBUG] 2017-11-15 23:11:44,498(936) --> [main] com.matt.App.main(App.java:26): Spring loaded  
+[INFO ] 2017-11-15 23:13:32,001(0) --> [main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:518): Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5f3b2fdc: startup date [Wed Nov 15 23:13:32 GMT+08:00 2017]; root of context hierarchy  
+[DEBUG] 2017-11-15 23:13:32,282(281) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.  
+[DEBUG] 2017-11-15 23:13:32,453(452) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Parsed configuration file: 'class path resource [mybatis-config.xml]'  
+[DEBUG] 2017-11-15 23:13:32,609(608) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Property 'mapperLocations' was not specified or no matching resources found  
+[DEBUG] 2017-11-15 23:13:32,669(668) --> [main] com.matt.App.main(App.java:26): Spring loaded  
+[INFO ] 2017-11-15 23:25:25,502(0) --> [main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:518): Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@21b585b1: startup date [Wed Nov 15 23:25:25 GMT+08:00 2017]; root of context hierarchy  
+[DEBUG] 2017-11-15 23:33:13,504(468002) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.  
+[DEBUG] 2017-11-15 23:33:14,429(468927) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Parsed configuration file: 'class path resource [mybatis-config.xml]'  
+[DEBUG] 2017-11-15 23:33:14,842(469340) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Property 'mapperLocations' was not specified or no matching resources found  
+[DEBUG] 2017-11-15 23:45:42,856(1217354) --> [main] com.matt.App.main(App.java:26): Spring loaded  
+[INFO ] 2017-11-15 23:48:15,967(0) --> [main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:518): Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6be7ed2d: startup date [Wed Nov 15 23:48:15 GMT+08:00 2017]; root of context hierarchy  
+[DEBUG] 2017-11-15 23:48:16,249(282) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.  
+[DEBUG] 2017-11-15 23:48:16,436(469) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Parsed configuration file: 'class path resource [mybatis-config.xml]'  
+[DEBUG] 2017-11-15 23:48:16,592(625) --> [main] org.slf4j.impl.JCLLoggerAdapter.debug(JCLLoggerAdapter.java:168): Property 'mapperLocations' was not specified or no matching resources found  
+[DEBUG] 2017-11-15 23:48:16,672(705) --> [main] com.matt.App.main(App.java:26): Spring loaded  

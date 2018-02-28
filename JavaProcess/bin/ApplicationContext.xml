@@ -53,6 +53,41 @@
         <property name="dataSource" ref="multipleDataSource"/>
     </bean>
     
+    <bean id="dataSourceAspect" class="com.matt.common.db.DataSourceAspect"></bean>
+    
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="save*" propagation="REQUIRED"></tx:method>
+            <tx:method name="query*" propagation="SUPPORTS" read-only="true"></tx:method>
+        </tx:attributes>
+    </tx:advice>
+    
+    <aop:config>
+        <aop:pointcut id="txPointcut" expression="execution(* com.matt.business.biz.*.*(..))"></aop:pointcut>
+        <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice" order="2"/>
+        <aop:advisor pointcut-ref="txPointcut" advice-ref="dataSourceAspect" order="1"/>
+    </aop:config>
+    
+    <!-- 告诉spring要使用注解，最简单方式配置一个包路径 -->
+    <context:component-scan base-package="com.matt" />
+    
+    <!-- 
+    <bean id="propertyHandler" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>config/config.properties</value>
+            </list>
+        </property>
+    </bean>
+     -->
+    
+    <bean id="configBean" class="test.spring.bean.ConfigBean">
+        <property name="name" value="${user.name}"></property>
+        <property name="password" value="${user.password}"></property>
+    </bean>
+    
+
+    
     <!-- 
     <bean id="userService" class="com.matt.business.biz.UserServiceImpl">
         <property name="dao" ref="userDao"></property>
@@ -69,20 +104,9 @@
     </bean>
 
      
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="save*" propagation="REQUIRED"></tx:method>
-            <tx:method name="query*" propagation="SUPPORTS" read-only="true"></tx:method>
-        </tx:attributes>
-    </tx:advice>
+
     
-    <bean id="dataSourceAspect" class="Open Declaration com.matt.common.db.DataSourceAspect"></bean>
-    
-    <aop:config>
-        <aop:pointcut id="txPointcut" expression="execution(* com.matt.business.biz.*.*(..))"></aop:pointcut>
-        <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice" order="2"/>
-        <aop:advisor pointcut-ref="txPointcut" advice-ref="dataSourceAspect" order="1"/>
-    </aop:config>
+
      
      <bean id="helloWorldService" class="com.matt.business.biz.HelloWorldServiceImpl"></bean>
      <bean id="helloWorldAspect" class="com.matt.business.aop.HelloWorldAspect"></bean>
@@ -101,10 +125,10 @@
      
      <bean id="awareBean" class="com.matt.spring.AwareBean"></bean>
      
+      -->
      <bean id="animalBean" class="com.matt.spring.factorybean.AnimalFactoryBean">
          <property name="animal" value="Monkey"></property>
      </bean>
      
-      -->
     
 </beans>

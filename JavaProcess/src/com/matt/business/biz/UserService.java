@@ -7,4 +7,6 @@ public interface UserService {
 	void addUser(final User user);
 	
 	int saveUser(User user);
+	
+	public void addUsetTest();
 }
