@@ -9,10 +9,19 @@ public class MutablePropertyValues implements PropertyValues{
 	private List<PropertyValue> propertyValueList;
 	
 	private Set<String> processedProperties;
+	
+	private boolean converted = true;
 
 	public MutablePropertyValues() {
 		this.propertyValueList = new ArrayList<PropertyValue>();
 	}
+	
+	public MutablePropertyValues(List<PropertyValue> propertyValueList)
+	{
+		this.propertyValueList = 
+			(propertyValueList != null ? propertyValueList : new ArrayList<PropertyValue>());
+	}
+	
 
 	public List<PropertyValue> getPropertyValueList() {
 		return propertyValueList;
@@ -28,6 +37,15 @@ public class MutablePropertyValues implements PropertyValues{
 
 	public void setProcessedProperties(Set<String> processedProperties) {
 		this.processedProperties = processedProperties;
+	}
+	
+
+	public boolean isConverted() {
+		return converted;
+	}
+
+	public void setConverted() {
+		this.converted = true;
 	}
 
 	@Override

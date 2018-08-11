@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.matt.business.dao.InterestedVisitorDao">  
+
+ 
+    <insert id="addInterestedVisitor" parameterType="com.matt.business.model.InterestedVisitor" flushCache="true">  
+        insert into interested_visitor (visitor_id, visitor_name, marking_time, job_id, last_service_job_id, sessions) 
+        values(#{visitorId},#{visitorName},#{markingTime},#{jobId},#{lastServiceJobId},#{sessions})
+    </insert>  
+    
+    <insert id="addBDVisitorInfo" parameterType="com.matt.business.model.BDVisitorInfo" flushCache="true">  
+        insert into bd_visitor_info (visitor_id, insured_identity, policy_no, splan_code, operate_time, start_time, end_time) 
+        values(#{visitorId},#{insuredIdentity},#{policyNo},#{splanCode},#{operateTime},#{startTime},#{endTime})
+    </insert>  
+    
+    <select id="selectInterestedVisitor" resultType="com.matt.business.model.InterestedVisitor">
+    <![CDATA[
+        SELECT SQL_BIG_RESULT tt.visitor_id visitorId, tt.visitor_name visitorName, tt.marking_time markingTime,
+               tt.nickname jobName, u2.nickname lastServiceJobName, sessions,COUNT(*) cnt FROM (
+SELECT t7.*, u1.nickname FROM interested_visitor t7 LEFT JOIN USER u1 ON t7.job_id = u1.jobId 
+LEFT JOIN (
+SELECT id FROM interested_visitor t 
+WHERE EXISTS (SELECT id FROM bd_visitor_info t1 WHERE t1.visitor_id = t.visitor_id AND t1.end_time >= NOW() AND t1.start_time <= NOW() AND t1.operate_time > t.marking_time)
+) t8 ON t7.id = t8.id
+WHERE t8.id IS NULL
+ORDER BY t7.marking_time DESC
+) tt LEFT JOIN bd_visitor_info t9 ON tt.visitor_id = t9.visitor_id 
+LEFT JOIN USER u2 ON tt.last_service_job_id = u2.jobId
+GROUP BY tt.visitor_id
+ORDER BY tt.marking_time DESC
+]]>
+    </select>    
+     
+</mapper>

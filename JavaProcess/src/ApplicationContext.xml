@@ -35,7 +35,12 @@
     <bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">  
         <property name="mapperInterface" value="com.matt.business.dao.UserDao"></property>  
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  
-    </bean>  
+    </bean> 
+    
+    <bean id="interestedVisitorDao" class="org.mybatis.spring.mapper.MapperFactoryBean">  
+        <property name="mapperInterface" value="com.matt.business.dao.InterestedVisitorDao"></property>  
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  
+    </bean>   
     
     <bean id="sqlTextDao" class="org.mybatis.spring.mapper.MapperFactoryBean">  
         <property name="mapperInterface" value="com.matt.business.dao.SqlTextDao"></property>  

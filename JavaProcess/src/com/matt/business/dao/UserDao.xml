@@ -15,4 +15,8 @@
     <delete id="deleteUser" parameterType="int">  
         DELETE FROM user WHERE id=#{id}  
     </delete>  
+    
+    <select id="selectUser" resultType="com.matt.business.model.User">
+        select * from user limit 0, 10
+    </select>
 </mapper>

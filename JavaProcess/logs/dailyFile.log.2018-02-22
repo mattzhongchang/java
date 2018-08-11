@@ -1,1 +1,0 @@
-[INFO ] 2018-02-22 22:18:05,420(0) --> [main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:518): Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7a67ab8f: startup date [Thu Feb 22 22:18:05 GMT+08:00 2018]; root of context hierarchy  

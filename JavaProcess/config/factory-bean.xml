@@ -19,5 +19,7 @@
      <bean id="proxyDBObject" class="test.factorybean.ProxyDBObject">
          <property name="currentDB" value="mysql"></property>
      </bean>
+     
+     
     
 </beans>

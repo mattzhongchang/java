@@ -1,5 +1,6 @@
 package test;
 
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.springframework.context.ApplicationContext;
@@ -21,6 +22,9 @@ public class TestUser {
 	{
 		PropertyConfigurator.configure(log4j);
 		Logger log = Logger.getLogger(UserController.class);
+		
+		org.apache.ibatis.logging.LogFactory.useLog4JLogging();
+		
 		ApplicationContext ctx = null;
 		
 		ctx = new ClassPathXmlApplicationContext(spring_config);
@@ -36,12 +40,14 @@ public class TestUser {
 		
 		System.out.println("123");
 	
-//		User user = new User();
-//		user.setId(1);
-//		user.setUsername("Jessica");
-//		user.setPassword("123");
-//		userService.saveUser(user);
-//		userService.saveUser(user);
+		User user = new User();
+		user.setId(1);
+		user.setUsername("Jessica");
+		user.setPassword("123");
+		userService.saveUser(user);
+		userService.saveUser(user);
+		
+		userService.selectUser();
 		
 		
 		

@@ -3,6 +3,9 @@ package org.matt.spring.beans.factory.support;
 import java.lang.reflect.Field;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import org.matt.spring.beans.BeanWrapperImpl;
@@ -11,11 +14,13 @@ import org.matt.spring.beans.PropertyValue;
 import org.matt.spring.beans.PropertyValues;
 import org.matt.spring.beans.factory.BeanFactory;
 import org.matt.spring.beans.factory.config.BeanDefinition;
+import org.matt.spring.beans.factory.config.TypedStringValue;
+import org.springframework.beans.PropertyAccessorUtils;
 import org.springframework.beans.TypeConverter;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.core.MethodParameter;
+import org.springframework.util.ObjectUtils;
 
-import edu.emory.mathcs.backport.java.util.Arrays;
 
 public abstract class AbstractBeanFactory implements BeanFactory{
 
@@ -79,6 +84,9 @@ public abstract class AbstractBeanFactory implements BeanFactory{
 		TypeConverter converter = getCustomTypeConverter();
 		BeanDefinitionValueResolver valueResolver = new BeanDefinitionValueResolver(this, beanName, mbd, converter);
 		
+		
+		List<PropertyValue> deepCopy = new ArrayList<PropertyValue>(original.size());
+		boolean resolveNecessary = false;
 		for (PropertyValue pv : original)
 		{
 			String propertyName = pv.getName();
@@ -87,11 +95,40 @@ public abstract class AbstractBeanFactory implements BeanFactory{
 			Object resolvedValue = valueResolver.resolveValueIfNecessary(pv, originalValue);
 			Object convertedValue = resolvedValue;
 			
+			boolean convertible = bw.isWritableProperty(propertyName) && 
+			         !PropertyAccessorUtils.isNestedOrIndexedProperty(propertyName);
+			if (convertible)
+			{
+				convertedValue = convertForProperty(resolvedValue, propertyName, bw, converter);
+			}
 			
-			
+			if (resolvedValue == originalValue)
+			{
+				if (convertible)
+				{
+					pv.setConvertedValue(convertedValue);
+				}
+				deepCopy.add(pv);
+			}
+			else if (convertible && originalValue instanceof TypedStringValue && 
+					!(convertedValue instanceof Collection || ObjectUtils.isArray(convertedValue)))
+			{
+				pv.setConvertedValue(convertedValue);
+				deepCopy.add(pv);
+			}
+			else
+			{
+				resolveNecessary = true;
+				deepCopy.add(new PropertyValue(pv, convertedValue));
+			}
 		}
 		
-		bw.setPropertyValues(mpvs);
+		if (mpvs != null && !resolveNecessary)
+		{
+			mpvs.setConverted();
+		}
+		
+		bw.setPropertyValues(new MutablePropertyValues(deepCopy));
 		
 		
 	}
@@ -99,8 +136,15 @@ public abstract class AbstractBeanFactory implements BeanFactory{
 	
 	private Object convertForProperty(Object value, String propertyName, BeanWrapperImpl bw, TypeConverter converter)
 	{
-		
-		return null;
+		if (converter instanceof BeanWrapperImpl)
+		{
+			return ((BeanWrapperImpl) converter).converterForProperty(value, propertyName);
+		}
+		else
+		{
+			// TODO 
+			return value;
+		}
 	}
 	
 

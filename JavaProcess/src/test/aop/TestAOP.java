@@ -9,7 +9,7 @@ public class TestAOP {
 		ApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:test.xml");
 		TestTarget target = (TestTarget) applicationContext.getBean("proxyFactoryBean");
 		target.test();
-		System.out.println("------ÎÞµÐ·Ö¸îÏß-----");
+		System.out.println("------ï¿½ÞµÐ·Ö¸ï¿½ï¿½ï¿½-----");
         target.test2();
 	}
 }

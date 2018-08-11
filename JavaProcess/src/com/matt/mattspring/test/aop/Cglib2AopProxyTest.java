@@ -15,6 +15,8 @@ public class Cglib2AopProxyTest {
 	@Test
 	public void testInterceptor() throws Exception
 	{
+		System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+		
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("resource.xml");
 		HelloWorldService helloWorldService = (HelloWorldService) applicationContext.getBean("helloWorldService");
 		helloWorldService.helloWorld();

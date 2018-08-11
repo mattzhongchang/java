@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.hsqldb.lib.Iterator;
 
 import com.matt.springframework.beans.BeanDefinition;
 import com.matt.springframework.beans.BeanPostProcessor;

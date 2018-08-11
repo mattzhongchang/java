@@ -1,6 +1,7 @@
 package org.matt.spring.beans.factory.xml;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -17,7 +18,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import edu.emory.mathcs.backport.java.util.Arrays;
+
 
 public class BeanDefinitionParserDelegate {
 

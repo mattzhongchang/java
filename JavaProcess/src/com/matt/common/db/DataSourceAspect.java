@@ -81,6 +81,9 @@ public class DataSourceAspect implements MethodInterceptor{
 		else
 		{
 			MultipleDataSource multipleDataSource = (MultipleDataSource) SpringContextUtil.getBean("multipleDataSource");
+		    multipleDataSource.setDataSourceKey(dataSourceKey.dataSourceKey());
+			
+			
 			String dataSource = (String) multipleDataSource.determineCurrentLookupKey();
 			logger.debug("dataSource=" + dataSource);
 			DataSourceInfo dataSourceInfo = new DataSourceInfo();

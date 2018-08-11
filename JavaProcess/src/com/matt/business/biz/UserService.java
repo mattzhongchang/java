@@ -1,5 +1,7 @@
 package com.matt.business.biz;
 
+import java.util.List;
+
 import com.matt.business.model.User;
 
 public interface UserService {
@@ -9,4 +11,6 @@ public interface UserService {
 	int saveUser(User user);
 	
 	public void addUsetTest();
+	
+	List<User> selectUser();
 }

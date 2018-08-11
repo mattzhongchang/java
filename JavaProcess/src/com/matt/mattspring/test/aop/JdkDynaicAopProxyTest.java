@@ -15,9 +15,11 @@ public class JdkDynaicAopProxyTest {
 	@Test
 	public void testInterceptor() throws Exception
 	{
+		System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+		
 		// -------- helloWorldService without AOP
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("resource.xml");
-		HelloWorldService helloWorldService = (HelloWorldServiceImpl) applicationContext.getBean("helloWorldService");
+		HelloWorldService helloWorldService = (HelloWorldService) applicationContext.getBean("helloWorldService");
 		helloWorldService.helloWorld();
 		
 		// -------- helloWorldService with AOP
