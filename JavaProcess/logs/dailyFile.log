@@ -1,6 +1,7 @@
-[INFO ] 2018-08-11 13:02:04,481(0) --> [main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:518): Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2b0e08e1: startup date [Sat Aug 11 13:02:04 GMT+08:00 2018]; root of context hierarchy  
-[DEBUG] 2018-08-11 13:02:07,226(2745) --> [main] org.apache.ibatis.logging.LogFactory.setImplementation(LogFactory.java:128): Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.  
-[DEBUG] 2018-08-11 13:02:08,289(3808) --> [main] org.apache.ibatis.logging.LogFactory.setImplementation(LogFactory.java:128): Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.  
-[DEBUG] 2018-08-11 13:02:08,805(4324) --> [main] org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:377): Parsed configuration file: 'class path resource [mybatis-config.xml]'  
-[DEBUG] 2018-08-11 13:02:08,993(4512) --> [main] org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:423): Property 'mapperLocations' was not specified or no matching resources found  
-[DEBUG] 2018-08-11 13:02:09,430(4949) --> [main] com.matt.App.main(App.java:27): Spring loaded  
+[INFO ] 2018-08-12 22:56:26,605(0) --> [main] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:518): Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1398c0b5: startup date [Sun Aug 12 22:56:26 GMT+08:00 2018]; root of context hierarchy  
+[DEBUG] 2018-08-12 22:56:29,508(2903) --> [main] org.apache.ibatis.logging.LogFactory.setImplementation(LogFactory.java:128): Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.  
+[DEBUG] 2018-08-12 22:56:30,620(4015) --> [main] org.apache.ibatis.logging.LogFactory.setImplementation(LogFactory.java:128): Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.  
+[DEBUG] 2018-08-12 22:56:31,137(4532) --> [main] org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:377): Parsed configuration file: 'class path resource [mybatis-config.xml]'  
+[DEBUG] 2018-08-12 22:56:31,325(4720) --> [main] org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:423): Property 'mapperLocations' was not specified or no matching resources found  
+[DEBUG] 2018-08-12 22:56:31,772(5167) --> [main] log4j.JdbcLog.main(JdbcLog.java:24): Spring loaded  
+[INFO ] 2018-08-12 22:56:31,772(5167) --> [main] log4j.JdbcLog.main(JdbcLog.java:25): 123  
